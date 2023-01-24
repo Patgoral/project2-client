@@ -7,26 +7,26 @@ The employee will be able to login and create a ticket with customer and bike in
 
 ## Wireframes: ##
 1. Login screen at start
-<img src="/PlanningWireframes/login.png" width="700" height="500"/>
+<img src="/PlanningDocs/PlanningWireframes/login.png" width="700" height="500"/>
 
 2. Create account screen, returns to login after signup:
-<img src="/PlanningWireframes/createAccount.png" width="700" height="500"/>
+<img src="/PlanningDocs/PlanningWireframes/createAccount.png" width="700" height="500"/>
 
 3. Main Screen after login:
-<img src="/PlanningWireframes/mainscreen.png" width="700" height="500"/>
+<img src="/PlanningDocs/PlanningWireframes/mainscreen.png" width="700" height="500"/>
 
 4. Create Ticket: 
-<img src="/PlanningWireframes/createTicket.png" width="700" height="500"/>
+<img src="/PlanningDocs/PlanningWireframes/createTicket.png" width="700" height="500"/>
 
 5. Add Parts (subdocument) to Ticket:
-<img src="/PlanningWireframes/addParts.png" width="700" height="500"/>
+<img src="/PlanningDocs/PlanningWireframes/addParts.png" width="700" height="500"/>
 
 6. Update Ticket Info: 
-<img src="/PlanningWireframes/Update.png" width="700" height="500"/>
+<img src="/PlanningDocs/PlanningWireframes/Update.png" width="700" height="500"/>
 
 ## Entity Relationship Diagram (ERD): ##
 
-<img src="/PlanningWireframes/ERD.png" width="500" height="250"/>
+<img src="/PlanningDocs/PlanningWireframes/ERD.png" width="500" height="250"/>
 
 
 
