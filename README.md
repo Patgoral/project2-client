@@ -25,7 +25,7 @@ The employee will be able to login and create a ticket with customer and bike in
 <img src="/PlanningWireframes/Update.png" width="700" height="500"/>
 
 ## Entity Relationship Diagram (ERD): ##
-<img src="/PlanningWireframes/ERD.png" width="700" height="400"/>
+<img src="/PlanningWireframes/ERD.png" width="500" height="250"/>
 
 
 
