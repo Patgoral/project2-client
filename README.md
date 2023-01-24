@@ -7,7 +7,7 @@ The employee will be able to login and create a ticket with customer and bike in
 
 ## Wireframes: ##
 
-<img scr="./PlanningWireframes/mainscreen.png" width="650" height="500"/>
+<img scr="PlanningWireframes/mainscreen.png" width="650" height="500"/>
 
 
 ## User Stories: ##
