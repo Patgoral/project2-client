@@ -24,6 +24,10 @@ The employee will be able to login and create a ticket with customer and bike in
 6. Update Ticket Info: 
 <img src="/PlanningWireframes/Update.png" width="700" height="500"/>
 
+## Entity Relationship Diagram (ERD): ##
+<img src="/PlanningWireframes/ERD.png" width="700" height="400"/>
+
+
 
 ## User Stories: ##
 
