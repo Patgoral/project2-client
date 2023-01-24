@@ -6,8 +6,23 @@ To create an app for bike shop employees to enter a ticket to keep track of upco
 The employee will be able to login and create a ticket with customer and bike info, as well as a subdocument with parts and part numbers.
 
 ## Wireframes: ##
+1. Login screen at start
+<img src="/PlanningWireframes/login.png" width="700" height="500"/>
 
-<img src="/PlanningWireframes/mainscreen.png" width="650" height="500"/>
+2. Create account screen, returns to login after signup:
+<img src="/PlanningWireframes/createAccount.png" width="700" height="500"/>
+
+3. Main Screen after login:
+<img src="/PlanningWireframes/mainscreen.png" width="700" height="500"/>
+
+4. Create Ticket: 
+<img src="/PlanningWireframes/createTicket.png" width="700" height="500"/>
+
+5. Add Parts (subdocument) to Ticket:
+<img src="/PlanningWireframes/addParts.png" width="700" height="500"/>
+
+6. Update Ticket Info: 
+<img src="/PlanningWireframes/Update.png" width="700" height="500"/>
 
 
 ## User Stories: ##
@@ -34,16 +49,19 @@ The employee will be able to login and create a ticket with customer and bike in
 
 ### Version Two: ###
 
--As a user, I want to hit complete to remove an entire ticket.
+-As a user, I want to be able to update and delete parts.
+
+-As a user, I want to hit complete to grey out a ticket and show completion.
 
 -As a user, I want to be able to enter a due date on the ticket.
 
--As a user, I want each ticket to be arranged by due date.
+
 
 ### Version Three: ###
+
+-As a user, I want each ticket to be arranged by due date.
 
 -As a user, I want to be able to attach a photo to each ticket.
 
 -As a user, I want to attach internal notes to each ticket.
 
--
