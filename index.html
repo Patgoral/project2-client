@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script type="module" src="./scripts/app.js" defer></script>
+		<title>Service Ticket Manager</title>
+	</head>
+	<body>
+		<div id="message-container"></div>
+		<div id="index-ticket-container"></div>
+		<div id="show-ticket-container"></div>
+
+
+		<form id="create-ticket-form">
+			<input type="text" name="customerName" placeholder="Customer Name" />
+			<input type="text" name="bikeName" placeholder="Bike Make/Model" />
+			<input type="text" name="svcDesc" placeholder="Service Description" />
+			<input type="submit" value="Create Ticket" />
+		</form>
+
+        <form id="sign-in-form">
+			<input type="text" name="username" placeholder="Enter Username" />
+			<input type="text" name="password" placeholder="Enter Password" />
+			
+			<input type="submit" value="Sign-In" />
+		</form>
+
+	
+	</body>
+</html>
