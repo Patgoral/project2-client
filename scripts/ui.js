@@ -1,4 +1,5 @@
 import { store } from './store.js'
+import { indexTickets } from './api.js'
 
 
 const indexTicketContainer = document.querySelector('#index-ticket-container')
@@ -10,9 +11,7 @@ const appContainer = document.querySelector('#app-container')
 
 // START OF TICKET
 
-const showTicketInfo= () => {
-    console.log('click')
-}
+
 
 export const onIndexTicketSuccess = (tickets) => {
 	tickets.forEach((ticket) => {
@@ -20,14 +19,11 @@ export const onIndexTicketSuccess = (tickets) => {
 		div.innerHTML = `
         <h2>${ticket.customerName}</h2>
         <h3>${ticket.bikeName}</h3>
-        <button id="show-ticket-btn" data-id="${ticket._id}">Show Ticket</button>
+        <button id="show-ticket-btn" class="showBtn" data-id="${ticket._id}">Show Ticket</button>
         `
-        
-        div.addEventListener('click', showTicketInfo())
 
 		indexTicketContainer.appendChild(div)
 	})
-    const showTicketBtn = document.querySelector('#show-ticket-btn')
 
     
 }
@@ -41,6 +37,7 @@ export const onFailure = (error) => {
 
 export const onCreateTicketSuccess = () => {
 	messageContainer.innerText = 'Ticket Created!'
+    
 }
 
 export const onShowTicketSuccess = (ticket) => {

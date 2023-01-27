@@ -1,3 +1,60 @@
 .hide {
     display: none;
 }
+
+body {
+    background-color: antiquewhite;
+}
+
+#navbar {
+    border: 3px solid black;
+    height: 120px;
+    background-color: gray;
+    display: flex;
+}
+
+#auth-container {
+    text-align: center;
+}
+
+#auth-container input{
+    height: 40px;
+    text-align: center;
+    margin: 5px;
+}
+
+#message-container {
+    text-align: center;
+    margin: 30px;
+}
+
+#create-ticket-form {
+    margin-top: 5px;
+    margin: 30px;
+    text-align: center;
+}
+
+#create-ticket-form input{ 
+    margin-top: 1px;
+    margin-right: 20px;
+    text-align: center;
+    font-weight: bold;
+    height: 20px;
+    border-radius: 10px;
+}
+
+
+#index-ticket-container{
+    display: flex;
+    justify-content: center;
+}
+
+#index-ticket-container div{
+    border: 5px solid black;
+    background-color: gray;
+    border-radius: 20%;
+    text-align: center;
+    width: 200px;
+    margin: 20px;
+    padding: 10px;
+}
