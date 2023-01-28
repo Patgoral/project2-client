@@ -58,3 +58,18 @@ body {
     margin: 20px;
     padding: 10px;
 }
+
+.modal-body {
+    text-align: center;
+} 
+
+#parts-container {
+    border: 1px solid blue;
+    margin: 5px;
+    text-align: left;
+} 
+ .updateTicketForm {
+    display: flex;
+    flex-direction: column;
+} 
+

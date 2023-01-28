@@ -10,8 +10,9 @@ import {
 	onFailure,
 	onCreateTicketSuccess,
 	onSignUpSuccess,
+    onSignInFailure,
 	onSignInSuccess,
-
+    reloadIndexElements,
 } from './ui.js'
 
 const createTicketForm = document.querySelector('#create-ticket-form')
@@ -47,7 +48,7 @@ signInForm.addEventListener('submit', (event) => {
 		.then((res) => onSignInSuccess(res.token))
 		.then(indexTickets)
 		.then((res) => res.json())
-		.catch(onFailure)
+		.catch(onSignInFailure)
 })
 
 // START OF TICKETS
@@ -59,25 +60,8 @@ indexTickets()
 	})
 	.catch(onFailure)
 
-// createTicketForm.addEventListener('submit', (event) => {
-// 	event.preventDefault()
-// 	const ticketData = {
-// 		ticket: {
-// 			customerName: event.target['customerName'].value,
-// 			bikeName: event.target['bikeName'].value,
-// 			svcDesc: event.target['svcDesc'].value,
-// 		},
-// 	}
-// 	const newCreatedTickets = createTicket(ticketData)
-// 		.then((res) => {
-// 			return res.data
-// 		})
+    
 
-// 		.catch(onFailure)
-// 	document.querySelector(`#index-ticket-container`).innerHTML =
-// 		indexTickets(newCreatedTickets)
-// 	indexTicketContainer.appendChild('div')
-// })
 
 createTicketForm.addEventListener('submit', (event) => {
 	event.preventDefault()
@@ -89,7 +73,14 @@ createTicketForm.addEventListener('submit', (event) => {
 		},
 	}
 
-	createTicket(ticketData).then(onCreateTicketSuccess).catch(onFailure)
+	createTicket(ticketData)
+    .then(onCreateTicketSuccess)
+    .then(reloadIndexElements)
+    .then(indexTickets)
+	.then((res) => res.json())
+    .then((res) => {
+	onIndexTicketSuccess(res.tickets)
+	})	.catch(onFailure)
 })
 
 
