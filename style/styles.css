@@ -1,75 +1,86 @@
 .hide {
-    display: none;
+	display: none;
 }
 
 body {
-    background-color: antiquewhite;
+	background-color: antiquewhite;
 }
 
 #navbar {
-    border: 3px solid black;
-    height: 120px;
-    background-color: gray;
-    display: flex;
+	border: 3px solid black;
+	height: 120px;
+    width: 100vw;
+	background-color: gray;
+	display: flex;
+	align-items: center;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 #auth-container {
-    text-align: center;
+	text-align: center;
 }
 
-#auth-container input{
-    height: 40px;
-    text-align: center;
-    margin: 5px;
+#auth-container input {
+	height: 40px;
+	text-align: center;
+	margin: 5px;
 }
 
 #message-container {
-    text-align: center;
-    margin: 30px;
+	text-align: center;
+	margin: 30px;
+	font-weight: bold;
 }
 
 #create-ticket-form {
-    margin-top: 5px;
-    margin: 30px;
-    text-align: center;
-}
-
-#create-ticket-form input{ 
-    margin-top: 1px;
-    margin-right: 20px;
-    text-align: center;
-    font-weight: bold;
-    height: 20px;
-    border-radius: 10px;
+	margin-top: 5px;
+	margin: 30px;
+	text-align: center;
 }
 
 
-#index-ticket-container{
-    display: flex;
-    justify-content: center;
+#create-ticket-form input {
+	margin-top: 1px;
+	margin-right: 20px;
+	text-align: center;
+	font-weight: bold;
+	height: 40px;
+	border-radius: 10px;
 }
 
-#index-ticket-container div{
-    border: 5px solid black;
-    background-color: gray;
-    border-radius: 20%;
-    text-align: center;
-    width: 200px;
-    margin: 20px;
-    padding: 10px;
+#index-ticket-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+    justify-items: center;        
+}
+
+#index-ticket-container div {
+	border: 5px solid black;
+	background-color: gray;
+	border-radius: 20%;
+	text-align: center;
+	width: 370px;
+    height: 300px;
+	margin: 10px;
+	padding: 10px;
 }
 
 .modal-body {
-    text-align: center;
-} 
+	text-align: left;
+}
 
 #parts-container {
-    border: 1px solid blue;
-    margin: 5px;
-    text-align: left;
-} 
- .updateTicketForm {
-    display: flex;
-    flex-direction: column;
-} 
-
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	border: 2px solid grey;
+	margin: 5px;
+	text-align: left;
+}
+.updateTicketForm {
+	display: flex;
+	flex-direction: column;
+}

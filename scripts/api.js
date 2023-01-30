@@ -28,9 +28,6 @@ export const signIn = (data) => {
 
 export const indexTickets = () => {
 	return fetch(`http://localhost:8000/tickets`, {
-        headers: {
-                'Authorization': `Bearer ${store.userToken}`,
-        },
     })
 }
 
@@ -53,8 +50,9 @@ export const updateTicket = (data, id) => {
 	return fetch(`http://localhost:8000/tickets/${id}`, {
 		method: 'PATCH',
 		headers: {
-			Accept: 'application/json',
+			'Accept': 'application/json',
 			'Content-Type': 'application/json',
+			'Authorization': `Bearer ${store.userToken}`,
 		},
 		body: JSON.stringify(data),
 	})
@@ -63,13 +61,19 @@ export const updateTicket = (data, id) => {
 export const deleteTicket = (id) => {
 	return fetch(`http://localhost:8000/tickets/${id}`, {
 		method: 'DELETE',
+        headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json',
+			'Authorization': `Bearer ${store.userToken}`,
+		},
 	})
 }
 
 //Exporting part api calls
 
 export const createPart = (ticketId, data) => {
-    return fetch(`http://localhost:8000/tickets/${ticketId}/parts/`, {
+
+    const response = fetch(`http://localhost:8000/tickets/${ticketId.toString()}/parts`, {
         method: 'POST',
         headers: {
             Accept: 'application/json',
@@ -77,6 +81,7 @@ export const createPart = (ticketId, data) => {
         },
         body: JSON.stringify(data),
     })
+    return response;
 }
 
 export const deletePart = (ticketId, partId) => {

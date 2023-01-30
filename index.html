@@ -18,14 +18,17 @@
 			<img src="./img/LNC-logo.png" img height="120px" />
 			<h2>Service Ticket Manager</h2>
 			<div id="message-container"></div>
+            <button id="signout-button">SIGN OUT</button>
 		</nav>
 
-		<container id="app-container"  class="hide">
+		<container id="app-container" >
 			<form id="create-ticket-form">
 				<input type="text" name="customerName" placeholder="Customer Name" />
 				<input type="text" name="bikeName" placeholder="Bike Make/Model" />
 				<input
-					type="textbox"
+					type="textbox" 
+                    size="50"
+                    id ="textbox"
 					name="svcDesc"
 					placeholder="Service Description"
 				/>
@@ -40,20 +43,20 @@
 
 		</container>
 
-		<container id="auth-container">
+		<container id="auth-container" >
 			<div id="login-message-container"></div>
 			<form id="sign-up-form">
 				<h2>Sign Up</h2>
-				<input type="text" name="username" placeholder="Enter Username" />
-				<input type="text" name="password" placeholder="Enter Password" />
+				<input type="text" name="username" id="signupUsername" placeholder="Enter Username" />
+				<input type="password" name="password" id="signupPassword" placeholder="Enter Password" />
 
-				<input type="submit" value="Sign-Up" />
+				<button type="submit" >Sign-Up</button>
 			</form>
 
 			<form id="sign-in-form">
 				<h2>Sign In</h2>
 				<input type="text" name="username" placeholder="Enter Username" />
-				<input type="text" name="password" placeholder="Enter Password" />
+				<input type="password" name="password" placeholder="Enter Password" />
 
 				<input type="submit" value="Sign-In" />
 			</form>

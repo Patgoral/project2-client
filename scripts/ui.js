@@ -22,6 +22,17 @@ export const reloadIndexElements = () => {
 	}
 }
 
+const modalCloser = () => {
+	const modalDiv = document.getElementById('showModal')
+	modalDiv.remove()
+	// .then(indexTickets)
+	// .then((res) => res.json())
+	// .then((res) => {
+	//     onIndexTicketSuccess(res.tickets)
+	// })
+	// .catch(onFailure)
+}
+
 // START OF TICKET
 export const onIndexTicketSuccess = (tickets) => {
 	tickets.forEach((ticket) => {
@@ -29,9 +40,9 @@ export const onIndexTicketSuccess = (tickets) => {
 		div.innerHTML = `
         <h2>${ticket.customerName}</h2>
         <h3>${ticket.bikeName}</h3>
-        <button id="show-ticket-btn" class="showBtn" data-toggle="modal" data-target="#showModal" data-id="${ticket._id}" >Show Ticket</button>
+        <button class="showBtn" data-toggle="modal" data-target="#showModal" data-id="${ticket._id}" >Show Ticket</button>
         `
-        
+
 		indexTicketContainer.appendChild(div)
 	})
 	const builtTickets = document.getElementsByClassName('showBtn')
@@ -54,7 +65,6 @@ const showTicketSetter = function (event) {
 		})
 		.catch(onFailure)
 }
-
 //  DELETE TICKET
 const deleteTicketSetter = function (event) {
 	const deleteTicketId = event.target.getAttribute('data-id')
@@ -84,30 +94,33 @@ const updateTicketSetter = function (event) {
 	}
 	updateTicket(ticketData, updateTicketId)
 		.then(onUpdateTicketSuccess)
-        .then(reloadIndexElements)
+		.then(reloadIndexElements)
 		.then(indexTickets)
 		.then((res) => res.json())
 		.then((res) => {
 			onIndexTicketSuccess(res.tickets)
 		})
 		.catch(onFailure)
+	modalCloser()
 }
 // CREATE PART
 const createPartSetter = function (event) {
 	event.preventDefault()
-	const ticketId = event.target.getAttribute('data-id')
+	const ticketId = event.target['ticketId'].value
 	const partData = {
 		part: {
 			partName: event.target['partName'].value,
 			partNumber: event.target['partNumber'].value,
 		},
 	}
-	createPart((ticketId, partData))
+
+	createPart(ticketId, partData)
 		.then((res) => res.json())
 		.then((res) => {
-			onCreatePartSuccess(res.part.ticket)
+			onShowTicketSuccess(res.ticket)
+			modalCloser()
+			onCreatePartSuccess()
 		})
-		.catch(onFailure)
 }
 
 // DELETE PART
@@ -123,26 +136,28 @@ const deletePartSetter = function (event) {
 			onDeletePartSuccess(res.ticket)
 		})
 		.catch(onFailure)
+	modalCloser()
 }
 
 // SHOWS TICKET/BUILDS PART CONTAINER & FORMS
 export const onShowTicketSuccess = (ticket) => {
 	const div = document.createElement('div')
-	div.innerHTML = 
-    `
-    <div class="modal fade" id="showModal" tabindex="-1" role="dialog" aria-labelledby="showModalLabel" aria-hidden="true">
+	div.innerHTML = `
+    <div class="modal fade" id="showModal" tabindex="-1" data-backdrop="false" role="dialog" aria-labelledby="showModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="showModalLabel">Ticket Manager</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close" data-dismiss="modal" id="closeModal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-        <h3>Customer Name: ${ticket.customerName}</h3>
-        <h3>Bike: ${ticket.bikeName}</h3>
-        <p>Service Description:<br>${ticket.svcDesc}</p>
+        <ul>
+        <li><h3>Customer Name: ${ticket.customerName}</h3></li>
+        <li><h3>Bike: ${ticket.bikeName}</h3></li>
+        <li><h4>Service Description:</h4>${ticket.svcDesc}</li>
+        </ul>
         <div id="parts-container">
           ${buildParts(ticket)}
         </div>
@@ -150,19 +165,20 @@ export const onShowTicketSuccess = (ticket) => {
         <form class ="addPartForm" id="newpart ticket-id="${ticket._id}">
         <input type="text" name="partName" placeholder="Part Name" />
         <input type="text" name="partNumber" placeholder="Part Number" />
-        <input class="addPartBtn" type="submit" value="Add Part">
+        <input hidden type="text" name="ticketId" value="${ticket._id}" />
+        <button class="addPartBtn" type="submit">Add Part</button>
       </form>
       <br>
         <form class ="updateTicketForm" data-id="${ticket._id}">
         <input type="text" name="customerName" value="${ticket.customerName}">
         <input type="text" name="bikeName" value="${ticket.bikeName}">
         <input type="text" name="svcDesc" value="${ticket.svcDesc}">
-        <input id="update-ticket-btn" class="updateBtn" type="submit" data-toggle="modal" value="Update Ticket">
+        <button id="update-ticket-btn" class="updateBtn" type="submit">Update Ticket</button<
       </form>  
-      
+      <br>
       <button id="delete-ticket-btn" class="deleteBtn" data-dismiss="modal" data-id="${
-            ticket._id
-        }">Delete Ticket</button>
+				ticket._id
+			}">Delete Ticket</button>
         </div>
         <div class="modal-footer">
         </div>
@@ -201,7 +217,7 @@ function buildParts(ticket) {
 	let string = ''
 	ticket.parts.forEach((part) => {
 		string += `<p id='${part._id}'><b>Name:</b> ${part.partName}<br><b>Part Number:</b> ${part.partNumber}</p>
-        <button class="deletePartBtn" ticket-id='${ticket._id}' part-id='${part._id}'>Delete Part</button>       
+        <button class="deletePartBtn" ticket-id='${ticket._id}' data-dismiss="modal" part-id='${part._id}'>Delete Part</button>       
         `
 	})
 
@@ -220,8 +236,13 @@ export const onSignUpSuccess = () => {
 	loginmessageContainer.innerHTML = "You've created a new user! Now Sign In"
 }
 
+export const onSignUpFailure = () => {
+	loginmessageContainer.innerHTML = 'Invalid Sign Up, please try again.'
+}
+
 export const onSignInFailure = () => {
-	loginmessageContainer.innerHTML = "You've entered an incorrect username or password."
+	loginmessageContainer.innerHTML =
+		"You've entered an incorrect username or password."
 }
 
 export const onSignInSuccess = (userToken) => {
@@ -229,6 +250,12 @@ export const onSignInSuccess = (userToken) => {
 	store.userToken = userToken
 	appContainer.classList.remove('hide')
 	authContainer.classList.add('hide')
+}
+
+export const onSignOutSuccess = () => {
+    messageContainer.innerHTML = 'Logout Successful!'
+    appContainer.classList.add('hide')
+	authContainer.classList.remove('hide')
 }
 
 // SUCCESS DIALOGUE
@@ -250,9 +277,10 @@ const onCreatePartSuccess = () => {
 
 export const onCreateTicketSuccess = () => {
 	messageContainer.innerText = 'Ticket Created!'
-	// indexTicketContainer.remove()
-	indexTickets()
+}
 
+export const onCreateTicketFailure = () => {
+	messageContainer.innerText = 'Invalid Ticket Entry'
 }
 
 export const onFailure = (error) => {
@@ -261,5 +289,3 @@ export const onFailure = (error) => {
     <p>${error}</p>
     `
 }
-
-
