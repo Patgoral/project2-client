@@ -16,6 +16,7 @@ const showTicketContainer = document.querySelector('#show-ticket-container')
 const authContainer = document.querySelector('#auth-container')
 const appContainer = document.querySelector('#app-container')
 const modalBody = document.querySelector('#modal-body')
+const modalTicket = document.querySelector('#modal-ticket')
 
 export const reloadIndexElements = () => {
 	while (indexTicketContainer.firstChild) {
@@ -23,10 +24,7 @@ export const reloadIndexElements = () => {
 	}
 }
 
-// const modalCloser = () => {
-// 	modalTicket.remove()
-	
-// }
+
 
 // START OF TICKET
 export const onIndexTicketSuccess = (tickets) => {
@@ -98,7 +96,7 @@ const updateTicketSetter = function (event) {
 		})
 		.catch(onFailure)
         $('#showModal').modal('toggle')
-        // modalCloser()
+        
 }
 // CREATE PART
 const createPartSetter = function (event) {
@@ -133,14 +131,17 @@ const createPartSetter = function (event) {
                 onDeletePartSuccess(res.ticket)
             })
             .catch(onFailure)
+          
     }
+
+
 
 
 // SHOWS TICKET/BUILDS PART CONTAINER & FORMS
 export const onShowTicketSuccess = (ticket) => {
 	const div = document.createElement('div')
 	div.innerHTML = `
-   
+   <div id="modal-ticket">
         <ul>
         <li><h3>Customer Name: ${ticket.customerName}</h3></li>
         <li><h3>Bike: ${ticket.bikeName}</h3></li>
@@ -167,7 +168,7 @@ export const onShowTicketSuccess = (ticket) => {
       <button id="delete-ticket-btn" class="deleteBtn" data-dismiss="modal" data-id="${
 				ticket._id
 			}">Delete Ticket</button>
-   
+   </div>
     `
 
 	modalBody.appendChild(div)
@@ -195,7 +196,7 @@ export const onShowTicketSuccess = (ticket) => {
 		singlePart.addEventListener('submit', createPartSetter)
 	}
 
-    // DELETE PART (NOT WORKING)
+    // DELETE PART 
 const deleteParts = document.getElementsByClassName('deletePartBtn')
 
 for (let i = 0; i < deleteParts.length; i++) {
@@ -214,6 +215,8 @@ function buildParts(ticket) {
 
 	return string
 }
+
+
 
 }
 

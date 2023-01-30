@@ -110,9 +110,10 @@ body {
 	flex-direction: column;
 }
 
-
+/* 
 footer {
     background-color: antiquewhite;
     height: 20vh;
-    opacity: 90%
-}
+    opacity: 90%;
+    justify-self: end;
+} */
