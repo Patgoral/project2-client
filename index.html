@@ -18,48 +18,93 @@
 			<img src="./img/LNC-logo.png" img height="120px" />
 			<h2>Service Ticket Manager</h2>
 			<div id="message-container"></div>
-            <button id="signout-button">SIGN OUT</button>
+			<button id="signout-button">SIGN OUT</button>
 		</nav>
 
-		<container id="app-container" >
+		<container id="app-container">
 			<form id="create-ticket-form">
 				<input type="text" name="customerName" placeholder="Customer Name" />
 				<input type="text" name="bikeName" placeholder="Bike Make/Model" />
 				<input
-					type="textbox" 
-                    size="50"
-                    id ="textbox"
+					type="textbox"
+					size="50"
+					id="textbox"
 					name="svcDesc"
 					placeholder="Service Description"
 				/>
 				<input type="submit" value="Create Ticket" />
 			</form>
 			<div id="index-ticket-container"></div>
-			<div id="show-ticket-container"></div>
+
+			<div id="show-ticket-container">
+				<div
+					class="modal fade"
+					id="showModal"
+					tabindex="-1"
+					
+					role="dialog"
+					aria-labelledby="showModalLabel"
+					aria-hidden="true"
+				>
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="showModalLabel">Ticket Manager</h5>
+								<button
+									type="button"
+									class="close"
+									data-dismiss="modal"
+									id="closeModal"
+									aria-label="Close"
+								>
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div id="modal-body" class="modal-body">
+
+                            </div>
+							<div class="modal-footer"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
 			<br />
-
-
-
-
 		</container>
 
-		<container id="auth-container" >
-			<div id="login-message-container"></div>
-			<form id="sign-up-form">
-				<h2>Sign Up</h2>
-				<input type="text" name="username" id="signupUsername" placeholder="Enter Username" />
-				<input type="password" name="password" id="signupPassword" placeholder="Enter Password" />
+		<br />
 
-				<button type="submit" >Sign-Up</button>
-			</form>
+		<container id="auth-container" class="hide">
+			<div id="authbg">
+				<div id="login-message-container"></div>
+				<br />
+				<form id="sign-up-form">
+					<h2>Sign Up</h2>
+					<input
+						type="text"
+						name="username"
+						id="signupUsername"
+						placeholder="Enter Username"
+					/>
+					<input
+						type="password"
+						name="password"
+						id="signupPassword"
+						placeholder="Enter Password"
+					/>
 
-			<form id="sign-in-form">
-				<h2>Sign In</h2>
-				<input type="text" name="username" placeholder="Enter Username" />
-				<input type="password" name="password" placeholder="Enter Password" />
+					<button type="submit">Sign-Up</button>
+				</form>
+				<br />
+				<form id="sign-in-form">
+					<h2>Sign In</h2>
+					<input type="text" name="username" placeholder="Enter Username" />
+					<input type="password" name="password" placeholder="Enter Password" />
 
-				<input type="submit" value="Sign-In" />
-			</form>
+					<input type="submit" value="Sign-In" />
+				</form>
+				<br />
+			</div>
 		</container>
 
 		<script type="module" src="./scripts/app.js" defer></script>
@@ -79,7 +124,7 @@
 			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 			crossorigin="anonymous"
 		></script>
+
+		<footer></footer>
 	</body>
 </html>
-
-

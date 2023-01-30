@@ -3,7 +3,8 @@
 }
 
 body {
-	background-color: antiquewhite;
+    background-image: url("../img/bg.jpg");
+
 }
 
 #navbar {
@@ -16,20 +17,44 @@ body {
 	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
+#navbar h2 {
+    font-size: 50px;
+}
+
+
+
 #auth-container {
 	text-align: center;
+    align-items: center;
+  
+
+}
+
+#authbg {
+    background-color: antiquewhite;
+    opacity: 90%;
 }
 
 #auth-container input {
 	height: 40px;
 	text-align: center;
 	margin: 5px;
+
+}
+
+
+
+#login-message-container {
+    font-size: 30px;
+    font-weight: bold;
+    color: red;
 }
 
 #message-container {
 	text-align: center;
 	margin: 30px;
 	font-weight: bold;
+    font-size: 20px;
 }
 
 #create-ticket-form {
@@ -83,4 +108,11 @@ body {
 .updateTicketForm {
 	display: flex;
 	flex-direction: column;
+}
+
+
+footer {
+    background-color: antiquewhite;
+    height: 20vh;
+    opacity: 90%
 }
