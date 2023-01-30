@@ -28,16 +28,11 @@ signUpForm.addEventListener('submit', (event) => {
 			password: event.target['password'].value,
 		},
 	}
-	signUp(userData)
-		.then((res) => res.json())
-		.then((res) => onSignUpSuccess(res.token))
-		.then(indexTickets)
-		.then((res) => res.json())
-		.catch(onSignUpFailure)
+	signUp(userData).then(onSignUpSuccess).catch(onFailure)
 })
 
 signInForm.addEventListener('submit', (event) => {
-	event.preventDefault()
+	event.preventDefault() 
 	const userData = {
 		credentials: {
 			username: event.target['username'].value,
@@ -59,7 +54,6 @@ signOutBtn.addEventListener('click', onSignOutSuccess)
 indexTickets()
 	.then((res) => res.json())
 	.then((res) => {
-		console.log(res)
 		onIndexTicketSuccess(res.tickets)
 	})
 	.catch(onFailure)
@@ -75,6 +69,7 @@ createTicketForm.addEventListener('submit', (event) => {
 	}
 
 	createTicket(ticketData)
+    
 		.then(onCreateTicketSuccess)
 		.then(reloadIndexElements)
 		.then(indexTickets)

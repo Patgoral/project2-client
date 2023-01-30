@@ -37,6 +37,7 @@ export const createTicket = (data) => {
 		headers: {
 			Accept: 'application/json',
 			'Content-Type': 'application/json',
+            'Authorization': `Bearer ${store.userToken}`,
 		},
 		body: JSON.stringify(data),
 	})

@@ -25,6 +25,9 @@ export const reloadIndexElements = () => {
 }
 
 
+const modalCloser = () => {
+    modalTicket.addEventListener('click', modalTicket.remove())
+}
 
 // START OF TICKET
 export const onIndexTicketSuccess = (tickets) => {
@@ -49,8 +52,7 @@ export const onIndexTicketSuccess = (tickets) => {
 
 const showTicketSetter = function (event) {
 	const showTicketId = event.target.getAttribute('data-id')
-
-	if (!showTicketId) return
+	// if (!showTicketId) return
 
 	showTicket(showTicketId)
 		.then((res) => res.json())
@@ -66,6 +68,7 @@ const deleteTicketSetter = function (event) {
 	if (!deleteTicketId) return
 
 	deleteTicket(deleteTicketId)
+   
 		.then(onDeleteTicketSuccess)
 		.then(reloadIndexElements)
 		.then(indexTickets)
@@ -73,7 +76,7 @@ const deleteTicketSetter = function (event) {
 		.then((res) => {
 			onIndexTicketSuccess(res.tickets)
 		})
-		.catch(onFailure)
+		.catch(onEditTicketFailure)
 }
 //  UPDATE TICKET
 const updateTicketSetter = function (event) {
@@ -97,6 +100,7 @@ const updateTicketSetter = function (event) {
 		.catch(onFailure)
         $('#showModal').modal('toggle')
         
+             
 }
 // CREATE PART
 const createPartSetter = function (event) {
@@ -112,9 +116,9 @@ const createPartSetter = function (event) {
 	createPart(ticketId, partData)
 		.then((res) => res.json())
 		.then((res) => {
-			onShowTicketSuccess(res.ticket)
 			onCreatePartSuccess()
             $('#showModal').modal('toggle')
+          
 		})
 }
 
@@ -138,7 +142,7 @@ const createPartSetter = function (event) {
 
 
 // SHOWS TICKET/BUILDS PART CONTAINER & FORMS
-export const onShowTicketSuccess = (ticket) => {
+const onShowTicketSuccess = (ticket) => {
 	const div = document.createElement('div')
 	div.innerHTML = `
    <div id="modal-ticket">
@@ -178,8 +182,9 @@ export const onShowTicketSuccess = (ticket) => {
 
 	for (let i = 0; i < deleteTickets.length; i++) {
 		let singleTicket = deleteTickets[i]
-		singleTicket.addEventListener('click', deleteTicketSetter)
+		singleTicket.addEventListener('click', deleteTicketSetter,)
 	}
+
 	// UPDATE TICKET
 	const updateTickets = document.getElementsByClassName('updateTicketForm')
 
@@ -201,7 +206,7 @@ const deleteParts = document.getElementsByClassName('deletePartBtn')
 
 for (let i = 0; i < deleteParts.length; i++) {
     let singlePart = deleteParts[i]
-    singlePart.addEventListener('click', deletePartSetter)
+    singlePart.addEventListener('click',deletePartSetter, modalCloser)
 }
 
 
@@ -215,8 +220,6 @@ function buildParts(ticket) {
 
 	return string
 }
-
-
 
 }
 
@@ -239,6 +242,7 @@ export const onSignInFailure = () => {
 export const onSignInSuccess = (userToken) => {
 	messageContainer.innerHTML = 'Successful Login!'
 	store.userToken = userToken
+    console.log(userToken)
 	appContainer.classList.remove('hide')
 	authContainer.classList.add('hide')
 }
@@ -256,6 +260,10 @@ const onUpdateTicketSuccess = () => {
 
 const onDeleteTicketSuccess = () => {
 	messageContainer.innerText = 'Ticket Deleted!'
+}
+
+const onEditTicketFailure = () => {
+	messageContainer.innerText = 'Unauthorized Edit'
 }
 
 const onDeletePartSuccess = () => {
@@ -278,5 +286,12 @@ export const onFailure = (error) => {
 	messageContainer.innerHTML = `
     <h3>ERROR!</h3>
     <p>${error}</p>
+    `
+}
+
+export const onAuthFailure = () => {
+    messageContainer.innerHTML = `
+    <h3>Unauthorized Edit Attempt</h3>
+    <p>You may only update/delete tickets you created.</p>
     `
 }
