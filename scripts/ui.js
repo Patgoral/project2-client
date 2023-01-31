@@ -12,7 +12,6 @@ import {
 const indexTicketContainer = document.querySelector('#index-ticket-container')
 const messageContainer = document.querySelector('#message-container')
 const loginmessageContainer = document.querySelector('#login-message-container')
-const showTicketContainer = document.querySelector('#show-ticket-container')
 const authContainer = document.querySelector('#auth-container')
 const appContainer = document.querySelector('#app-container')
 const modalBody = document.querySelector('#modal-body')
@@ -24,10 +23,18 @@ export const reloadIndexElements = () => {
 	}
 }
 
+modalBody.addEventListener("hidden.bs.modal", function () {
+    modalBody.children[0].remove()
+})
 
-const modalCloser = () => {
-    modalTicket.addEventListener('click', modalTicket.remove())
-}
+const modal = document.getElementById("showModal");
+modal.addEventListener("hidden.bs.modal", function () {
+  const modalBody = document.querySelector(".modal-body");
+  if (modalBody.children.length > 0) {
+    modalBody.children[0].remove();
+  }
+});
+
 
 // START OF TICKET
 export const onIndexTicketSuccess = (tickets) => {
@@ -98,7 +105,8 @@ const updateTicketSetter = function (event) {
 			onIndexTicketSuccess(res.tickets)
 		})
 		.catch(onFailure)
-        $('#showModal').modal('toggle')
+        $('#showModal').modal('hide')
+        modalCloser()
         
              
 }
@@ -117,9 +125,9 @@ const createPartSetter = function (event) {
 		.then((res) => res.json())
 		.then((res) => {
 			onCreatePartSuccess()
-            $('#showModal').modal('toggle')
-          
-		})
+            $("#showModal").modal("toggle")
+            modalCloser()
+          })
 }
 
     // DELETE PART
@@ -135,7 +143,8 @@ const createPartSetter = function (event) {
                 onDeletePartSuccess(res.ticket)
             })
             .catch(onFailure)
-          
+            modalCloser()
+
     }
 
 
@@ -206,7 +215,7 @@ const deleteParts = document.getElementsByClassName('deletePartBtn')
 
 for (let i = 0; i < deleteParts.length; i++) {
     let singlePart = deleteParts[i]
-    singlePart.addEventListener('click',deletePartSetter, modalCloser)
+    singlePart.addEventListener('click',deletePartSetter)
 }
 
 
