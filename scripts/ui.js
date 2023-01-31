@@ -95,13 +95,13 @@ const updateTicketSetter = function (event) {
 	}
 	updateTicket(ticketData, updateTicketId)
 		.then(onUpdateTicketSuccess)
+        .catch(onEditTicketFailure)
 		.then(reloadIndexElements)
 		.then(indexTickets)
 		.then((res) => res.json())
 		.then((res) => {
 			onIndexTicketSuccess(res.tickets)
 		})
-		.catch(onFailure)
         modalCloser()
         
              
@@ -268,7 +268,7 @@ const onDeleteTicketSuccess = () => {
 }
 
 const onEditTicketFailure = () => {
-	messageContainer.innerText = 'Unauthorized Edit'
+	messageContainer.innerText = 'You may only update/delete tickets you created.'
 }
 
 const onDeletePartSuccess = () => {
@@ -294,9 +294,3 @@ export const onFailure = (error) => {
     `
 }
 
-export const onAuthFailure = () => {
-    messageContainer.innerHTML = `
-    <h3>Unauthorized Edit Attempt</h3>
-    <p>You may only update/delete tickets you created.</p>
-    `
-}
