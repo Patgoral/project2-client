@@ -71,8 +71,6 @@ const deleteTicketSetter = function (event) {
 	if (!deleteTicketId) return
 
 	deleteTicket(deleteTicketId)
-   
-		.then(onDeleteTicketSuccess)
 		.then(reloadIndexElements)
 		.then(indexTickets)
 		.then((res) => res.json())
@@ -94,14 +92,13 @@ const updateTicketSetter = function (event) {
 		},
 	}
 	updateTicket(ticketData, updateTicketId)
-		.then(onUpdateTicketSuccess)
-        .catch(onEditTicketFailure)
 		.then(reloadIndexElements)
 		.then(indexTickets)
 		.then((res) => res.json())
 		.then((res) => {
 			onIndexTicketSuccess(res.tickets)
 		})
+        .catch(onEditTicketFailure)
         modalCloser()
         
              
@@ -259,13 +256,7 @@ export const onSignOutSuccess = () => {
 }
 
 // SUCCESS DIALOGUE
-const onUpdateTicketSuccess = () => {
-	messageContainer.innerText = 'Ticket Updated!'
-}
 
-const onDeleteTicketSuccess = () => {
-	messageContainer.innerText = 'Ticket Deleted!'
-}
 
 const onEditTicketFailure = () => {
 	messageContainer.innerText = 'You may only update/delete tickets you created.'
