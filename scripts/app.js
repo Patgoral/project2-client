@@ -32,8 +32,9 @@ signUpForm.addEventListener('submit', (event) => {
     .then((res) => res.json())
     .then(onSignUpSuccess)
     .catch(onSignUpFailure)
-    signUpForm.reset()
 })
+
+
 
 signInForm.addEventListener('submit', (event) => {
 	event.preventDefault() 
