@@ -27,7 +27,7 @@ export const reloadIndexElements = () => {
 
 const modalCloser = () => {
     $('#showModal').modal('toggle')
-    // modalBody.children[0].remove()
+    modalBody.children[0].remove()
 }
 
 modalCloseBtn.addEventListener('click', modalCloser)
