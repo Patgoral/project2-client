@@ -70,7 +70,10 @@ const deleteTicketSetter = function (event) {
 	const deleteTicketId = event.target.getAttribute('data-id')
 
 	if (!deleteTicketId) return
-
+    
+    if (store.userToken !== ticket.owner) {
+        onEditTicketFailure()
+    }else{
 	deleteTicket(deleteTicketId)
 		.then(reloadIndexElements)
 		.then(indexTickets)
@@ -81,6 +84,7 @@ const deleteTicketSetter = function (event) {
 		.catch(onEditTicketFailure)
         onEvent()
         modalCloser()
+    }
 }
 //  UPDATE TICKET
 const updateTicketSetter = function (event) {
