@@ -44,7 +44,6 @@ signInForm.addEventListener('submit', (event) => {
 			password: event.target['password'].value,
 		},
 	}
-	console.log(userData)
 	signIn(userData)
 		.then((res) => res.json())
 		.then((res) => onSignInSuccess(res.token))

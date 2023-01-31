@@ -62,6 +62,7 @@ const showTicketSetter = function (event) {
 		.then((res) => {
 			onShowTicketSuccess(res.ticket)
 		})
+
 		.catch(onFailure)
 }
 //  DELETE TICKET
@@ -78,6 +79,7 @@ const deleteTicketSetter = function (event) {
 			onIndexTicketSuccess(res.tickets)
 		})
 		.catch(onEditTicketFailure)
+        onEvent()
         modalCloser()
 }
 //  UPDATE TICKET
@@ -101,6 +103,7 @@ const updateTicketSetter = function (event) {
         .catch((onEditTicketFailure) => {
             console.error(onEditTicketFailure)
         })
+        onEvent()
         modalCloser()
         
              
@@ -243,7 +246,6 @@ export const onSignInFailure = () => {
 export const onSignInSuccess = (userToken) => {
 	messageContainer.innerHTML = 'Successful Login!'
 	store.userToken = userToken
-    console.log(userToken)
 	appContainer.classList.remove('hide')
 	authContainer.classList.add('hide')
     signOutBtn.classList.remove('hide')
@@ -262,6 +264,10 @@ export const onSignOutSuccess = () => {
 
 const onEditTicketFailure = () => {
 	messageContainer.innerText = 'You may only update/delete tickets you created.'
+}
+
+const onEvent = () => {
+    messageContainer.innerText = ""
 }
 
 const onDeletePartSuccess = () => {
