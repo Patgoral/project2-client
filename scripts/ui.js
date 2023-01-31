@@ -78,7 +78,7 @@ const deleteTicketSetter = function (event) {
 		.then((res) => {
 			onIndexTicketSuccess(res.tickets)
 		})
-		.catch(onEditTicketFailure)
+		.catch(onFailure)
         onEvent()
         modalCloser()
 }
@@ -260,7 +260,7 @@ export const onSignOutSuccess = () => {
 // SUCCESS DIALOGUE
 
 
-const onEditTicketFailure = (error) => {
+const onEditTicketFailure = () => {
 	messageContainer.innerText = 'You may only update/delete tickets you created.'
 }
 
