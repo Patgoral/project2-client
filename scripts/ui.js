@@ -62,8 +62,7 @@ const showTicketSetter = function (event) {
 		.then((res) => {
 			onShowTicketSuccess(res.ticket)
 		})
-        console.log(ticket.owner)
-        console.log(store.userToken)
+      
 		.catch(onFailure)
 }
 //  DELETE TICKET
@@ -178,7 +177,8 @@ const onShowTicketSuccess = (ticket) => {
 			}">Delete Ticket</button>
    </div>
     `
-
+    console.log(ticket.owner)
+    console.log(store.userToken)
 	modalBody.appendChild(div)
 
 	// DELETE TICKET
