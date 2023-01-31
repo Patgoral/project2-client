@@ -20,15 +20,15 @@ const signOutBtn = document.querySelector('#signout-button')
 
 export const reloadIndexElements = () => {
 	while (indexTicketContainer.firstChild) {
-		indexTicketContainer.children[0].remove()
+		// indexTicketContainer.children[0].remove()
 	}
 }
 
 
-// const modalCloser = () => {
-//     $('#showModal').modal('toggle')
-//     modalBody.children[0].remove()
-// }
+const modalCloser = () => {
+    $('#showModal').modal('toggle')
+    modalBody.children[0].remove()
+}
 
 modalCloseBtn.addEventListener('click', modalCloser)
 
