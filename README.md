@@ -5,68 +5,63 @@
 To create an app for bike shop employees to enter a ticket to keep track of upcoming service.
 The employee will be able to login and create a ticket with customer and bike info, as well as a subdocument with parts and part numbers.
 
-## Wireframes: ##
-1. Login screen at start
-<img src="/PlanningDocs/PlanningWireframes/login.png" width="700" height="500"/>
+## Screenshots: ##
+1. Sign in/Sign Up Screen
+<img src="/img/login.png" width="700" height="500"/>
 
-2. Create account screen, returns to login after signup:
-<img src="/PlanningDocs/PlanningWireframes/createAccount.png" width="700" height="500"/>
+2. Main Screen after login:
+<img src="/img/signin.png" width="700" height="500"/>
 
-3. Main Screen after login:
-<img src="/PlanningDocs/PlanningWireframes/mainscreen.png" width="700" height="500"/>
+3. Ticket editing modal screen: 
+<img src="/img/modal.png" width="700" height="500"/>
 
-4. Create Ticket: 
-<img src="/PlanningDocs/PlanningWireframes/createTicket.png" width="700" height="500"/>
+### Technologies Used: ###
+-HTML
+-JavaScript
+-CSS
+-Express
+-Mongoose
+-Json Web Token
 
-5. Add Parts (subdocument) to Ticket:
-<img src="/PlanningDocs/PlanningWireframes/addParts.png" width="700" height="500"/>
-
-6. Update Ticket Info: 
-<img src="/PlanningDocs/PlanningWireframes/Update.png" width="700" height="500"/>
 
 ## Entity Relationship Diagram (ERD): ##
 
 <img src="/PlanningDocs/PlanningWireframes/ERD.png" width="500" height="250"/>
 
+## Getting Started: ##
+
+You can visit the page at this link: (Bike Shop Service Manager)
 
 
-## User Stories: ##
+## User Instructions: ##
 
-### MVP: ###
+-Each user will sign up with a unique username and password.
 
--As a user, I want to see the logo and site description as well as the create user and log-in prompts.
+-The user will then sign in to access the main service ticket queue.
 
--As a user, I won't be able to access the page until I create an account and log-in.
+-Users will be able to see all service tickets created by all users.
 
--As a user, I want to be able to create a new service ticket.
+-Users can then create a new ticket.
 
--As a user, I want to be able to enter in a customer's name, description of bike, and description of service.
+-Each user can only update or delete tickets that they created.
 
--As a user, I want to be able to update or delete a customer's ticket.
+-Users can add/delete parts from any ticket whether they made it or not.
 
--As a user, I also want to select a button to allow me to enter the required part name and part number.
+-Users can sign out, to return to the sign in screen.
 
--As a user, I expect to see each part/part number I have entered in the parts area of the service ticket.
 
--As a user, I want to see an update and delete button under each part list item.
-
--As a user, I want to see each service ticket listed in order of creation.
+## Next Steps ##
 
 ### Version Two: ###
 
--As a user, I want to be able to update and delete parts.
+-I plan to have error handlers if you try to edit/delete a ticke you didn't create.
 
--As a user, I want to hit complete to grey out a ticket and show completion.
+-I plan to add a created by field, so that users can see who created each ticket.
 
--As a user, I want to be able to enter a due date on the ticket.
-
-
+-I plan to add a due date entry field to each ticket, and for the tickets to be ordered by soonest due date.
 
 ### Version Three: ###
 
--As a user, I want each ticket to be arranged by due date.
+-I would like to leverage an existing bike parts API to populate actual parts/part numbers as well as inventory counts.
 
--As a user, I want to be able to attach a photo to each ticket.
-
--As a user, I want to attach internal notes to each ticket.
-
+-I would like to format for mobile

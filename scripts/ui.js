@@ -15,7 +15,7 @@ const loginmessageContainer = document.querySelector('#login-message-container')
 const authContainer = document.querySelector('#auth-container')
 const appContainer = document.querySelector('#app-container')
 const modalBody = document.querySelector('#modal-body')
-const modalTicket = document.querySelector('#modal-ticket')
+const modalCloseBtn = document.querySelector('#closeModal')
 
 export const reloadIndexElements = () => {
 	while (indexTicketContainer.firstChild) {
@@ -23,18 +23,13 @@ export const reloadIndexElements = () => {
 	}
 }
 
-modalBody.addEventListener("hidden.bs.modal", function () {
+
+const modalCloser = () => {
+    $('#showModal').modal('toggle')
     modalBody.children[0].remove()
-})
+}
 
-const modal = document.getElementById("showModal");
-modal.addEventListener("hidden.bs.modal", function () {
-  const modalBody = document.querySelector(".modal-body");
-  if (modalBody.children.length > 0) {
-    modalBody.children[0].remove();
-  }
-});
-
+modalCloseBtn.addEventListener('click', modalCloser)
 
 // START OF TICKET
 export const onIndexTicketSuccess = (tickets) => {
@@ -84,6 +79,8 @@ const deleteTicketSetter = function (event) {
 			onIndexTicketSuccess(res.tickets)
 		})
 		.catch(onEditTicketFailure)
+        // $("#showModal").modal("toggle")
+        modalCloser()
 }
 //  UPDATE TICKET
 const updateTicketSetter = function (event) {
@@ -105,7 +102,6 @@ const updateTicketSetter = function (event) {
 			onIndexTicketSuccess(res.tickets)
 		})
 		.catch(onFailure)
-        $('#showModal').modal('hide')
         modalCloser()
         
              
@@ -125,7 +121,6 @@ const createPartSetter = function (event) {
 		.then((res) => res.json())
 		.then((res) => {
 			onCreatePartSuccess()
-            $("#showModal").modal("toggle")
             modalCloser()
           })
 }
@@ -144,7 +139,6 @@ const createPartSetter = function (event) {
             })
             .catch(onFailure)
             modalCloser()
-
     }
 
 
@@ -178,7 +172,7 @@ const onShowTicketSuccess = (ticket) => {
         <button id="update-ticket-btn" class="updateBtn" type="submit">Update Ticket</button<
       </form>  
       <br>
-      <button id="delete-ticket-btn" class="deleteBtn" data-dismiss="modal" data-id="${
+      <button id="delete-ticket-btn" class="deleteBtn" data-id="${
 				ticket._id
 			}">Delete Ticket</button>
    </div>
@@ -218,12 +212,12 @@ for (let i = 0; i < deleteParts.length; i++) {
     singlePart.addEventListener('click',deletePartSetter)
 }
 
-
+// BUILD PARTS CONTAINER
 function buildParts(ticket) {
 	let string = ''
 	ticket.parts.forEach((part) => {
 		string += `<p id='${part._id}'><b>Part Name:</b> ${part.partName}<br><b>Part Number:</b> ${part.partNumber}</p>
-        <button class="deletePartBtn" data-dismiss="modal" ticket-id='${ticket._id}'  part-id='${part._id}'>Delete Part</button>       
+        <button class="deletePartBtn" ticket-id='${ticket._id}'  part-id='${part._id}'>Delete Part</button>       
         `
 	})
 
@@ -231,7 +225,6 @@ function buildParts(ticket) {
 }
 
 }
-
 
 
 // USER ACTIONS

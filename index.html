@@ -21,7 +21,7 @@
 			<button id="signout-button">SIGN OUT</button>
 		</nav>
 
-		<container id="app-container" >
+		<container id="app-container" class="hide">
 			<form id="create-ticket-form">
 				<input type="text" name="customerName" placeholder="Customer Name" />
 				<input type="text" name="bikeName" placeholder="Bike Make/Model" />
@@ -41,7 +41,7 @@
 					class="modal fade"
 					id="showModal"
 					tabindex="-1"
-					
+					data-backdrop="static"
 					role="dialog"
 					aria-labelledby="showModalLabel"
 					aria-hidden="true"
@@ -53,7 +53,6 @@
 								<button
 									type="button"
 									class="close"
-									data-dismiss="modal"
 									id="closeModal"
 									aria-label="Close"
 								>
