@@ -62,7 +62,8 @@ const showTicketSetter = function (event) {
 		.then((res) => {
 			onShowTicketSuccess(res.ticket)
 		})
-        console.log(user.owner)
+        console.log(ticket.owner)
+        console.log(store.userToken)
 		.catch(onFailure)
 }
 //  DELETE TICKET
