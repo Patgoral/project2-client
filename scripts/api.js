@@ -44,7 +44,7 @@ export const createTicket = (data) => {
 }
 
 export const showTicket = (id) => {
-	return fetch(`https://polar-stream-21217.herokuapp.com/${id}`)
+	return fetch(`https://polar-stream-21217.herokuapp.com/tickets/${id}`)
 }
 
 export const updateTicket = (data, id) => {
