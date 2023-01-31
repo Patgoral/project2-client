@@ -100,7 +100,7 @@ const updateTicketSetter = function (event) {
 		.then((res) => {
 			onIndexTicketSuccess(res.tickets)
 		})
-        .catch((onEditTicketFailure)
+        .catch(onEditTicketFailure)
         onEvent()
         modalCloser()
         
