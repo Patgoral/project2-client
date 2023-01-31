@@ -177,8 +177,7 @@ const onShowTicketSuccess = (ticket) => {
 			}">Delete Ticket</button>
    </div>
     `
-    console.log(ticket.owner)
-    console.log(store.userToken)
+
 	modalBody.appendChild(div)
 
 	// DELETE TICKET
@@ -261,7 +260,7 @@ export const onSignOutSuccess = () => {
 // SUCCESS DIALOGUE
 
 
-const onEditTicketFailure = () => {
+const onEditTicketFailure = (error) => {
 	messageContainer.innerText = 'You may only update/delete tickets you created.'
 }
 
