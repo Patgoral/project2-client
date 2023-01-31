@@ -109,6 +109,7 @@ body {
 	margin: 5px;
 	text-align: left;
     background-color: #E2E2E2;
+    max-height: 150px;
 }
 .updateTicketForm {
 	display: flex;
