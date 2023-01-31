@@ -62,7 +62,7 @@ const showTicketSetter = function (event) {
 		.then((res) => {
 			onShowTicketSuccess(res.ticket)
 		})
-
+        console.log(user.owner)
 		.catch(onFailure)
 }
 //  DELETE TICKET
