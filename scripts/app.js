@@ -32,7 +32,7 @@ signUpForm.addEventListener('submit', (event) => {
     .then((res) => res.json())
     .then(onSignUpSuccess)
     .catch(onSignUpFailure)
-    signUp.reset()
+    signUpForm.reset()
 })
 
 signInForm.addEventListener('submit', (event) => {
