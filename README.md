@@ -17,16 +17,19 @@ The employee will be able to login and create a ticket with customer and bike in
 
 ### Technologies Used: ###
 -HTML
+
 -JavaScript
+
 -CSS
+
 -Express
+
 -Mongoose
+
 -Json Web Token
 
+-MongoDb
 
-## Entity Relationship Diagram (ERD): ##
-
-<img src="/PlanningDocs/PlanningWireframes/ERD.png" width="500" height="250"/>
 
 ## Getting Started: ##
 

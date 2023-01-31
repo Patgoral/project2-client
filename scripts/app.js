@@ -28,7 +28,10 @@ signUpForm.addEventListener('submit', (event) => {
 			password: event.target['password'].value,
 		},
 	}
-	signUp(userData).then(onSignUpSuccess).catch(onFailure)
+	signUp(userData)
+    .then((res) => res.json())
+    .then(onSignUpSuccess)
+    .catch(onSignUpFailure)
 })
 
 signInForm.addEventListener('submit', (event) => {

@@ -1,5 +1,3 @@
-
-
 .hide {
 	display: none;
 }
@@ -16,11 +14,12 @@ body {
 	background-color: gray;
 	display: flex;
 	align-items: center;
-	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	
 }
 
 #navbar h2 {
     font-size: 50px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 
@@ -44,7 +43,9 @@ body {
 
 }
 
-
+.modal-header {
+    background-color: #E2E2E2;
+}
 
 #login-message-container {
     font-size: 30px;
@@ -95,6 +96,7 @@ body {
 	padding: 10px;
 }
 
+
 .modal-body {
 	text-align: left;
 }
@@ -106,6 +108,7 @@ body {
 	border: 2px solid grey;
 	margin: 5px;
 	text-align: left;
+    background-color: #E2E2E2;
 }
 .updateTicketForm {
 	display: flex;

@@ -16,6 +16,7 @@ const authContainer = document.querySelector('#auth-container')
 const appContainer = document.querySelector('#app-container')
 const modalBody = document.querySelector('#modal-body')
 const modalCloseBtn = document.querySelector('#closeModal')
+const signOutBtn = document.querySelector('#signout-button')
 
 export const reloadIndexElements = () => {
 	while (indexTicketContainer.firstChild) {
@@ -39,7 +40,7 @@ export const onIndexTicketSuccess = (tickets) => {
         <h2>${ticket.customerName}</h2>
         <h3>${ticket.bikeName}</h3>
         <h5>${ticket.svcDesc}</h5>
-        <button class="showBtn" data-toggle="modal" data-target="#showModal" data-id="${ticket._id}" >Show Ticket</button>
+        <button class="showBtn btn-info" data-toggle="modal" data-target="#showModal" data-id="${ticket._id}" >Show Ticket</button>
         `
 
 		indexTicketContainer.appendChild(div)
@@ -79,7 +80,6 @@ const deleteTicketSetter = function (event) {
 			onIndexTicketSuccess(res.tickets)
 		})
 		.catch(onEditTicketFailure)
-        // $("#showModal").modal("toggle")
         modalCloser()
 }
 //  UPDATE TICKET
@@ -162,17 +162,17 @@ const onShowTicketSuccess = (ticket) => {
         <input type="text" name="partName" placeholder="Part Name" />
         <input type="text" name="partNumber" placeholder="Part Number" />
         <input hidden type="text" name="ticketId" value="${ticket._id}" />
-        <button class="addPartBtn" type="submit">Add Part</button>
+        <button class="addPartBtn" id="add-part-btn" type="submit">Add Part</button>
       </form>
       <br>
         <form class ="updateTicketForm" data-id="${ticket._id}">
         <input type="text" name="customerName" value="${ticket.customerName}">
         <input type="text" name="bikeName" value="${ticket.bikeName}">
         <input type="text" name="svcDesc" value="${ticket.svcDesc}">
-        <button id="update-ticket-btn" class="updateBtn" type="submit">Update Ticket</button<
+        <button id="update-ticket-btn" class="btn-success" type="submit">Update Ticket</button<
       </form>  
       <br>
-      <button id="delete-ticket-btn" class="deleteBtn" data-id="${
+      <button id="delete-ticket-btn" class="deleteBtn btn-danger" data-id="${
 				ticket._id
 			}">Delete Ticket</button>
    </div>
@@ -216,8 +216,8 @@ for (let i = 0; i < deleteParts.length; i++) {
 function buildParts(ticket) {
 	let string = ''
 	ticket.parts.forEach((part) => {
-		string += `<p id='${part._id}'><b>Part Name:</b> ${part.partName}<br><b>Part Number:</b> ${part.partNumber}</p>
-        <button class="deletePartBtn" ticket-id='${ticket._id}'  part-id='${part._id}'>Delete Part</button>       
+		string += `<p id='${part._id}'><b>Part Name:</b> ${part.partName}<br><b>Part Number:</b> ${part.partNumber}
+        <br><button class="deletePartBtn btn-danger" id="delete-part-btn" ticket-id='${ticket._id}'  part-id='${part._id}'>Delete Part</button></p>       
         `
 	})
 
@@ -247,12 +247,15 @@ export const onSignInSuccess = (userToken) => {
     console.log(userToken)
 	appContainer.classList.remove('hide')
 	authContainer.classList.add('hide')
+    signOutBtn.classList.remove('hide')
 }
 
 export const onSignOutSuccess = () => {
     messageContainer.innerHTML = 'Logout Successful!'
     appContainer.classList.add('hide')
 	authContainer.classList.remove('hide')
+    signOutBtn.classList.add('hide')
+    
 }
 
 // SUCCESS DIALOGUE
