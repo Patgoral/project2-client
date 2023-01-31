@@ -93,10 +93,6 @@ const updateTicketSetter = function (event) {
 			svcDesc: event.target['svcDesc'].value,
 		},
 	}
-    if (`${ticket.owner} !=== ${store.userToken}`) {
-        onEditTicketFailure() 
-    } else {
-
 	updateTicket(ticketData, updateTicketId)
 		.then(reloadIndexElements)
 		.then(indexTickets)
@@ -107,7 +103,7 @@ const updateTicketSetter = function (event) {
         .catch(onEditTicketFailure)
         onEvent()
         modalCloser()
-    }
+        
              
 }
 // CREATE PART
