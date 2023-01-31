@@ -7,13 +7,13 @@ The employee will be able to login and create a ticket with customer and bike in
 
 ## Screenshots: ##
 1. Sign in/Sign Up Screen
-<img src="/img/login.png" width="700" height="500"/>
+<img src="./img/login.png" width="700" height="500"/>
 
 2. Main Screen after login:
-<img src="/img/signin.png" width="700" height="500"/>
+<img src="./img/signin.png" width="700" height="500"/>
 
 3. Ticket editing modal screen: 
-<img src="/img/modal.png" width="700" height="500"/>
+<img src="./img/modal.png" width="700" height="500"/>
 
 ### Technologies Used: ###
 -HTML
