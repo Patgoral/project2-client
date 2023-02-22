@@ -44,11 +44,11 @@ export const createTicket = (data) => {
 }
 
 export const showTicket = (id) => {
-	return fetch(`http://localhost:8000/tickets/${id}`)
+	return fetch(`https://serviceticketmanager-server.onrender.com/tickets/${id}`)
 }
 
 export const updateTicket = (data, id) => {
-	return fetch(`http://localhost:8000/tickets/${id}`, {
+	return fetch(`https://serviceticketmanager-server.onrender.com/tickets/${id}`, {
 		method: 'PATCH',
 		headers: {
 			'Accept': 'application/json',
@@ -60,7 +60,7 @@ export const updateTicket = (data, id) => {
 }
 
 export const deleteTicket = (id) => {
-	return fetch(`http://localhost:8000/tickets/${id}`, {
+	return fetch(`https://serviceticketmanager-server.onrender.com/tickets/${id}`, {
 		method: 'DELETE',
         headers: {
 			'Accept': 'application/json',
@@ -74,7 +74,7 @@ export const deleteTicket = (id) => {
 
 export const createPart = (ticketId, data) => {
 
-    const response = fetch(`http://localhost:8000/tickets/${ticketId.toString()}/parts`, {
+    const response = fetch(`https://serviceticketmanager-server.onrender.com/tickets/${ticketId.toString()}/parts`, {
         method: 'POST',
         headers: {
             Accept: 'application/json',
@@ -86,7 +86,7 @@ export const createPart = (ticketId, data) => {
 }
 
 export const deletePart = (ticketId, partId) => {
-	return fetch(`http://localhost:8000/tickets/${ticketId}/parts/${partId}`, {
+	return fetch(`https://serviceticketmanager-server.onrender.com/tickets/${ticketId}/parts/${partId}`, {
 		method: 'DELETE',
 	})
 	
