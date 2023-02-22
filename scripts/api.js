@@ -4,7 +4,7 @@ import { store } from './store.js'
 
 
 export const signUp = (data) => {
-	return fetch(`https://polar-stream-21217.herokuapp.com/sign-up`, {
+	return fetch(`https://serviceticketmanager-server.onrender.com/sign-up`, {
 		method: 'POST',
 		headers: {
 			'Accept': 'application/json',
@@ -15,7 +15,7 @@ export const signUp = (data) => {
 }
 
 export const signIn = (data) => {
-	return fetch(`https://polar-stream-21217.herokuapp.com/sign-in`, {
+	return fetch(`https://serviceticketmanager-server.onrender.com/sign-in`, {
 		method: 'POST',
 		headers: {
 			'Accept': 'application/json',
@@ -27,12 +27,12 @@ export const signIn = (data) => {
 // Exporting ticket api calls
 
 export const indexTickets = () => {
-	return fetch(`https://polar-stream-21217.herokuapp.com/tickets`, {
+	return fetch(`https://serviceticketmanager-server.onrender.com/tickets`, {
     })
 }
 
 export const createTicket = (data) => {
-	return fetch(`https://polar-stream-21217.herokuapp.com/tickets`, {
+	return fetch(`https://serviceticketmanager-server.onrender.com/tickets`, {
 		method: 'POST',
 		headers: {
 			Accept: 'application/json',
@@ -44,11 +44,11 @@ export const createTicket = (data) => {
 }
 
 export const showTicket = (id) => {
-	return fetch(`https://polar-stream-21217.herokuapp.com/tickets/${id}`)
+	return fetch(`http://localhost:8000/tickets/${id}`)
 }
 
 export const updateTicket = (data, id) => {
-	return fetch(`https://polar-stream-21217.herokuapp.com/tickets/${id}`, {
+	return fetch(`http://localhost:8000/tickets/${id}`, {
 		method: 'PATCH',
 		headers: {
 			'Accept': 'application/json',
@@ -60,7 +60,7 @@ export const updateTicket = (data, id) => {
 }
 
 export const deleteTicket = (id) => {
-	return fetch(`https://polar-stream-21217.herokuapp.com/tickets/${id}`, {
+	return fetch(`http://localhost:8000/tickets/${id}`, {
 		method: 'DELETE',
         headers: {
 			'Accept': 'application/json',
@@ -74,7 +74,7 @@ export const deleteTicket = (id) => {
 
 export const createPart = (ticketId, data) => {
 
-    const response = fetch(`https://polar-stream-21217.herokuapp.com/tickets/${ticketId.toString()}/parts`, {
+    const response = fetch(`http://localhost:8000/tickets/${ticketId.toString()}/parts`, {
         method: 'POST',
         headers: {
             Accept: 'application/json',
@@ -86,7 +86,7 @@ export const createPart = (ticketId, data) => {
 }
 
 export const deletePart = (ticketId, partId) => {
-	return fetch(`https://polar-stream-21217.herokuapp.com/tickets/${ticketId}/parts/${partId}`, {
+	return fetch(`http://localhost:8000/tickets/${ticketId}/parts/${partId}`, {
 		method: 'DELETE',
 	})
 	

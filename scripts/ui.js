@@ -78,7 +78,7 @@ const deleteTicketSetter = function (event) {
 		.then((res) => {
 			onIndexTicketSuccess(res.tickets)
 		})
-		.catch(onFailure)
+		.catch(onEditTicketFailure)
         onEvent()
         modalCloser()
 }
