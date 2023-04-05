@@ -45,4 +45,18 @@ Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
 remote: Resolving deltas:   0% (0/2)[Kremote: Resolving deltas:  50% (1/2)[Kremote: Resolving deltas: 100% (2/2)[Kremote: Resolving deltas: 100% (2/2), completed with 2 local objects.[K
 To https://github.com/Patgoral/project2-client.git
    fcd6e17..832c470  main -> main
-[1m[7m%[27m[1m[0m                                                                                                                                  ]2;patgoral@Patricks-Air:~/SEI/projects/project2/client/project2-client]1;..oject2-client[0m[27m[24m[J[01;32m➜  [36mproject2-client[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004h
+[1m[7m%[27m[1m[0m                                                                                                                                  ]2;patgoral@Patricks-Air:~/SEI/projects/project2/client/project2-client]1;..oject2-client[0m[27m[24m[J[01;32m➜  [36mproject2-client[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hggit add .[?1l>[?2004l
+]2;git add .]1;git[1m[7m%[27m[1m[0m                                                                                                                                  ]2;patgoral@Patricks-Air:~/SEI/projects/project2/client/project2-client]1;..oject2-client[0m[27m[24m[J[01;32m➜  [36mproject2-client[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hggit commit -m "readme"  update"[?1l>[?2004l
+]2;git commit -m "readme update"]1;git[main 3e63733] readme update
+ 2 files changed, 18 insertions(+), 2 deletions(-)
+[1m[7m%[27m[1m[0m                                                                                                                                  ]2;patgoral@Patricks-Air:~/SEI/projects/project2/client/project2-client]1;..oject2-client[0m[27m[24m[J[01;32m➜  [36mproject2-client[00m [01;34mgit:([31mmain[34m)[00m [K[?1h=[?2004hggit push origin main[?1l>[?2004l
+]2;git push origin main]1;gitEnumerating objects: 7, done.
+Counting objects:  14% (1/7)Counting objects:  28% (2/7)Counting objects:  42% (3/7)Counting objects:  57% (4/7)Counting objects:  71% (5/7)Counting objects:  85% (6/7)Counting objects: 100% (7/7)Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects:  25% (1/4)Compressing objects:  50% (2/4)Compressing objects:  75% (3/4)Compressing objects: 100% (4/4)Compressing objects: 100% (4/4), done.
+Writing objects:  25% (1/4)Writing objects:  50% (2/4)Writing objects:  75% (3/4)Writing objects: 100% (4/4)Writing objects: 100% (4/4), 959 bytes | 959.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/3)[Kremote: Resolving deltas:  33% (1/3)[Kremote: Resolving deltas:  66% (2/3)[Kremote: Resolving deltas: 100% (3/3)[Kremote: Resolving deltas: 100% (3/3), completed with 3 local objects.[K
+To https://github.com/Patgoral/project2-client.git
+   832c470..3e63733  main -> main
+[1m[7m%[27m[1m[0m                                                                                                                                  ]2;patgoral@Patricks-Air:~/SEI/projects/project2/client/project2-client]1;..oject2-client[0m[27m[24m[J[01;32m➜  [36mproject2-client[00m [01;34mgit:([31mmain[34m)[00m [K[?1h=[?2004hnnode  
