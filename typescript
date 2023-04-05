@@ -1,0 +1,32 @@
+Script started on Wed Apr  5 15:05:55 2023
+[1m[7m%[27m[1m[0m                                                                                                                                  ]2;patgoral@Patricks-Air:~/SEI/projects/project2/client/project2-client]1;..oject2-client[0m[27m[24m[J[01;32m➜  [36mproject2-client[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hsscrt ipts[1m/[0m[0m [?1l>[?2004l
+]2;scripts]1;scripts[1m[7m%[27m[1m[0m                                                                                                                                  ]2;patgoral@Patricks-Air:~/SEI/projects/project2/client/project2-client/scripts]1;..lient/scripts[0m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hnnode app.js[?1l>[?2004l
+]2;node app.js]1;node(node:6170) Warning: To load an ES module, set "type": "module" in the package.json or use the .mjs extension.
+(Use `node --trace-warnings ...` to show where the warning was created)
+/Users/patgoral/SEI/projects/project2/client/project2-client/scripts/app.js:1
+import { indexTickets, createTicket, signUp, signIn } from './api.js'
+^^^^^^
+
+SyntaxError: Cannot use import statement outside a module
+[90m    at internalCompileFunction (node:internal/vm:73:18)[39m
+[90m    at wrapSafe (node:internal/modules/cjs/loader:1195:20)[39m
+[90m    at Module._compile (node:internal/modules/cjs/loader:1239:27)[39m
+[90m    at Module._extensions..js (node:internal/modules/cjs/loader:1329:10)[39m
+[90m    at Module.load (node:internal/modules/cjs/loader:1133:32)[39m
+[90m    at Module._load (node:internal/modules/cjs/loader:972:12)[39m
+[90m    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:83:12)[39m
+[90m    at node:internal/main/run_main_module:23:47[39m
+
+Node.js v19.7.0
+[1m[7m%[27m[1m[0m                                                                                                                                  ]2;patgoral@Patricks-Air:~/SEI/projects/project2/client/project2-client/scripts]1;..lient/scripts[0m[27m[24m[J[01;31m➜  [36mscripts[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004hnnpm start[?1l>[?2004l
+]2;npm start]1;npm[37;40mnpm[0m [0m[31;40mERR![0m [0m[35mcode[0m ENOENT
+[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35msyscall[0m open
+[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35mpath[0m /Users/patgoral/SEI/projects/project2/client/project2-client/scripts/package.json
+[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35merrno[0m -2
+[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35menoent[0m ENOENT: no such file or directory, open '/Users/patgoral/SEI/projects/project2/client/project2-client/scripts/package.json'
+[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35menoent[0m This is related to npm not being able to find a file.
+[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35menoent[0m 
+[0m
+[37;40mnpm[0m [0m[31;40mERR![0m[35m[0m A complete log of this run can be found in:
+[0m[37;40mnpm[0m [0m[31;40mERR![0m[35m[0m     /Users/patgoral/.npm/_logs/2023-04-05T19_06_09_738Z-debug-0.log
+[0m[1m[7m%[27m[1m[0m                                                                                                                                  ]2;patgoral@Patricks-Air:~/SEI/projects/project2/client/project2-client/scripts]1;..lient/scripts[0m[27m[24m[J[01;31m➜  [36mscripts[00m [01;34mgit:([31mmain[34m) [33m✗[00m [K[?1h=[?2004h
