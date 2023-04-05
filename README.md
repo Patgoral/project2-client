@@ -33,7 +33,7 @@ The employee will be able to login and create a ticket with customer and bike in
 
 ## Getting Started: ##
 
-You can visit the page at this link: (Bike Shop Service Manager)
+You can visit the page at this link: [Bike Shop Service Manager](https://patgoral.github.io/project2-client/)
 
 
 ## User Instructions: ##
