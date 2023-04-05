@@ -24,8 +24,8 @@ signUpForm.addEventListener('submit', (event) => {
 	event.preventDefault()
 	const userData = {
 		credentials: {
-			username: "demo" || event.target['username'].value,
-			password: "1234" || event.target['password'].value,
+			username: event.target['username'].value,
+			password: event.target['password'].value,
 		},
 	}
 	signUp(userData)
@@ -40,8 +40,8 @@ signInForm.addEventListener('submit', (event) => {
 	event.preventDefault() 
 	const userData = {
 		credentials: {
-			username: event.target['username'].value,
-			password: event.target['password'].value,
+			username: "demo",
+			password: "1234",
 		},
 	}
 	signIn(userData)
