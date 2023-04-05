@@ -40,8 +40,8 @@ signInForm.addEventListener('submit', (event) => {
 	event.preventDefault() 
 	const userData = {
 		credentials: {
-			username: "demo",
-			password: "1234",
+			username: event.target['username'].value,
+			password: event.target['password'].value,
 		},
 	}
 	signIn(userData)
