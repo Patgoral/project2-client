@@ -11,7 +11,7 @@ import {
 
 const indexTicketContainer = document.querySelector('#index-ticket-container')
 const messageContainer = document.querySelector('#message-container')
-const loginmessageContainer = document.querySelector('#login-message-container')
+const loginmessageContainer = document.querySelector('#login-message-container') // camel case !
 const authContainer = document.querySelector('#auth-container')
 const appContainer = document.querySelector('#app-container')
 const modalBody = document.querySelector('#modal-body')
@@ -145,7 +145,7 @@ const createPartSetter = function (event) {
 
 
 // SHOWS TICKET/BUILDS PART CONTAINER & FORMS
-const onShowTicketSuccess = (ticket) => {
+const onShowTicketSuccess = (ticket) => { // careful of you indentation in here, looks like you've switched from 4 spaces to 2 ( per tab ) in some places
 	const div = document.createElement('div')
 	div.innerHTML = `
    <div id="modal-ticket">
@@ -290,4 +290,3 @@ export const onFailure = (error) => {
     <p>${error}</p>
     `
 }
-
